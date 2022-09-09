@@ -108,9 +108,38 @@ public class Cuenta {
     public String toString() {
         return "Cuenta{" + "numeroInsano: " + numeroInsano + ", saldo: " + saldo + ", tipoCuenta: " + tipoCuenta + ", tipoUsuario: " + tipoUsuario + ", usuario: " + usuario + '}';
     }
-    
+    public void listarDatos(){
+    String tip = "Cuenta corriente";
+    if(this.tipoCuenta == 'V'){
+        tip = "Cuenta Vista";
+    }
+    System.out.println("        DATOS CUENTA        ");
+    System.out.println("----------------------------");
+    System.out.print(this.usuario.getNombre() +" " );
+    System.out.print(this.usuario.getRut() + " ");
+    System.out.print(this.saldo + " ");
+    System.out.println(tip);
+    System.out.println("----------------------------");
+        
+    }
 }
+    public int maxGiro(){
+        if(this.tipoUsuario == true){
+            if(this.saldo > 1000000){
+                return 1000000;
+            }else{
+                return this.saldo;
+            }
 
+        }else{
+            if(this.saldo > 200000){
+                return 200000;
+            }else{
+                return this.saldo;
+            }
+        }
+    }
+}
 ----------------------------------------------------------------------------------------------------------
 Clase usuario
 
@@ -184,6 +213,8 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "Nombre=" + Nombre + ", rut=" + rut + ", clave=" + clave + '}';
     }
-    
+    public boolean validar(String rut, String clave){
+    return this.rut.equals(rut) && this.clave.equals(clave);
+    }
 }
                                                       
