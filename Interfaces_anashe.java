@@ -189,7 +189,13 @@ public class PromedioNotas extends javax.swing.JFrame {
     }                                  
 
     private void LimpiarMouseClicked(java.awt.event.MouseEvent evt) {                                     
+        nota1.setText("");
+        nota2.setText("");
+        nota3.setText("");
         
+        porcentaje1.setText("");
+        porcentaje2.setText("");
+        porcentaje3.setText("");
     }                                    
 
     private void CalcularMouseClicked(java.awt.event.MouseEvent evt) {                                      
@@ -221,7 +227,21 @@ public class PromedioNotas extends javax.swing.JFrame {
             if(porcentaje1 + porcentaje2 + porcentaje3 !=100)  msgErrores += "\n Sumatorias de % tiene que ser 100";
             if(msgErrores.equals("")){
                 promedio = (nota1 * porcentaje1 + nota2 * porcentaje2 + nota3 * porcentaje3)/100;
-                Prom.setText("Promedio: "+promedio);
+                
+                //Mostrar con 1 decimal
+                //String.format( Formato de salida de un decimal
+                //
+                
+                
+                
+                
+                
+                String p = String.format("%.1f", promedio);
+                
+
+                Prom.setText("Promedio: "+promedio
+                
+                
             }else{
                 JOptionPane.showMessageDialog(null, msgErrores);
             }
